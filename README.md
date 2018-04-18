@@ -7,3 +7,4 @@ A original racing game were changing into different colors is the main feature
 * Unreal Project Setup
 * Added Basic Materials
 * Added CarPlayerController-, Car- and Level Blueprint
+* Added CarPlayerController and Car C++ Classes
