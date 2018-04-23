@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "CarMovementComponent.h"
 #include "Car.h"
 
 
@@ -9,6 +10,7 @@ ACar::ACar()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	CarMovementComponent = CreateDefaultSubobject<UCarMovementComponent>(FName("Movement Component"));
 }
 
 // Called when the game starts or when spawned

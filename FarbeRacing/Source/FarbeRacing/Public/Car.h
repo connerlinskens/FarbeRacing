@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "Car.generated.h"
 
+class UCarMovementComponent;
+
 UCLASS()
 class FARBERACING_API ACar : public APawn
 {
@@ -26,6 +28,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
+	UCarMovementComponent* CarMovementComponent = nullptr;
 	
 };
