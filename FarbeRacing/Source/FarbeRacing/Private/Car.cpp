@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "CarMovementComponent.h"
 #include "Car.h"
+#include "CarMovementComponent.h"
 
 
 // Sets default values
@@ -34,3 +34,7 @@ void ACar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+void ACar::Move(float Direction)
+{
+	CarMovementComponent->Move(Direction, TravelDistance);
+}

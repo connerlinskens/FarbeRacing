@@ -32,3 +32,7 @@ void UCarMovementComponent::TickComponent(float DeltaTime, ELevelTick TickType, 
 	// ...
 }
 
+void UCarMovementComponent::Move(float Direction, float Distance) 
+{
+	UE_LOG(LogTemp, Warning, TEXT("going to: %f with direction: %f"), Distance, Direction);
+}

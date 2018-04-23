@@ -13,21 +13,26 @@ class FARBERACING_API ACar : public APawn
 {
 	GENERATED_BODY()
 
-public:
-	// Sets default values for this pawn's properties
-	ACar();
+private:
+	UPROPERTY(EditDefaultsOnly)
+	float TravelDistance = 100; // TODO make an good default
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
+	// Sets default values for this pawn's properties
+	ACar();
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UCarMovementComponent* CarMovementComponent = nullptr;
+	UFUNCTION(BlueprintCallable, Category = Movement)
+		void Move(float Direction);
 	
+	UCarMovementComponent* CarMovementComponent = nullptr;
 };
