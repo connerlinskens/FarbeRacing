@@ -15,10 +15,10 @@ class FARBERACING_API ACar : public APawn
 
 private:
 	UPROPERTY(EditDefaultsOnly)
-	float CarHeight = 200; // TODO make a good default
+	float CarHeight = 250;
 
 	UPROPERTY(EditDefaultsOnly)
-	float ForwardSpeed = 300; // TODO make a good default
+	float ForwardSpeed = 2500;
 
 	void GoForward();
 
