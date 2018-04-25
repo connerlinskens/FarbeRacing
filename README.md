@@ -10,3 +10,4 @@ A original racing game were changing into different colors is the main feature
 * Added CarPlayerController and Car C++ Classes
 * Started with movement
 * Movement Functions and Basic Movement Input Binding added
+* Movement Behaviour Working

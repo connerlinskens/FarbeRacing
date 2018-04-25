@@ -15,7 +15,12 @@ class FARBERACING_API ACar : public APawn
 
 private:
 	UPROPERTY(EditDefaultsOnly)
-	float TravelDistance = 100; // TODO make an good default
+	float CarHeight = 200; // TODO make a good default
+
+	UPROPERTY(EditDefaultsOnly)
+	float ForwardSpeed = 300; // TODO make a good default
+
+	void GoForward();
 
 protected:
 	// Called when the game starts or when spawned
@@ -30,9 +35,6 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	UFUNCTION(BlueprintCallable, Category = Movement)
-		void Move(float Direction);
 	
 	UCarMovementComponent* CarMovementComponent = nullptr;
 };

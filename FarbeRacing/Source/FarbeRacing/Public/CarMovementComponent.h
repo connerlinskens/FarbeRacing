@@ -13,7 +13,7 @@ class FARBERACING_API UCarMovementComponent : public UActorComponent
 	GENERATED_BODY()
 
 private:	
-	
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -24,6 +24,5 @@ public:
 
 	// Sets default values for this component's properties
 	UCarMovementComponent();
-	
-	void Move(float Direction, float Distance);
+
 };

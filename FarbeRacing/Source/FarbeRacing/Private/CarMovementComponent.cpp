@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "CarMovementComponent.h"
+#include "GameFramework/Actor.h"
+#include "Engine/World.h"
 
 
 // Sets default values for this component's properties
@@ -29,10 +31,6 @@ void UCarMovementComponent::TickComponent(float DeltaTime, ELevelTick TickType, 
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
-}
+	//...
 
-void UCarMovementComponent::Move(float Direction, float Distance) 
-{
-	UE_LOG(LogTemp, Warning, TEXT("going to: %f with direction: %f"), Distance, Direction);
 }

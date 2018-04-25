@@ -2,6 +2,9 @@
 
 #include "Car.h"
 #include "CarMovementComponent.h"
+#include "GameFramework/Actor.h"
+#include "UnrealMathUtility.h"
+#include "Engine/World.h"
 
 
 // Sets default values
@@ -25,6 +28,7 @@ void ACar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	GoForward();
 }
 
 // Called to bind functionality to input
@@ -34,7 +38,9 @@ void ACar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
-void ACar::Move(float Direction)
+void ACar::GoForward()
 {
-	CarMovementComponent->Move(Direction, TravelDistance);
+	auto ForwardDistanceChange = ForwardSpeed * GetWorld()->DeltaTimeSeconds;
+	auto NewDistanceForward = GetActorLocation().Y + ForwardDistanceChange;
+	SetActorRelativeLocation(FVector(GetActorLocation().X, NewDistanceForward, CarHeight));
 }
