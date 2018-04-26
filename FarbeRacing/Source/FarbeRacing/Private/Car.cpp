@@ -14,20 +14,21 @@ ACar::ACar()
 	PrimaryActorTick.bCanEverTick = true;
 
 	CarMovementComponent = CreateDefaultSubobject<UCarMovementComponent>(FName("Movement Component"));
+
 }
 
 // Called when the game starts or when spawned
 void ACar::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
 void ACar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 	GoForward();
 }
 

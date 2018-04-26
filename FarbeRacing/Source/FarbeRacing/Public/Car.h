@@ -37,4 +37,5 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
 	UCarMovementComponent* CarMovementComponent = nullptr;
+
 };

@@ -12,3 +12,4 @@ A original racing game were changing into different colors is the main feature
 * Movement Functions and Basic Movement Input Binding added
 * Movement Behaviour Working
 * Basic Floor Setup
+* Color Changing Behaviour Complete (3 color bug)
