@@ -13,3 +13,4 @@ A original racing game were changing into different colors is the main feature
 * Movement Behaviour Working
 * Basic Floor Setup
 * Color Changing Behaviour Complete (3 color bug)
+* Fixed 3 color bug (changed controls)
