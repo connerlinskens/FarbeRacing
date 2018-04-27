@@ -15,3 +15,4 @@ A original racing game were changing into different colors is the main feature
 * Color Changing Behaviour Complete (3 color bug)
 * Fixed 3 color bug (changed controls)
 * BeginOverlap Check working
+* Every frame update works (in BP)
