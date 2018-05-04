@@ -42,6 +42,12 @@ void ACar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void ACar::GoForward()
 {
 	auto ForwardDistanceChange = ForwardSpeed * GetWorld()->DeltaTimeSeconds;
-	auto NewDistanceForward = GetActorLocation().Y + ForwardDistanceChange;
-	SetActorRelativeLocation(FVector(GetActorLocation().X, NewDistanceForward, CarHeight));
+	auto NewDistanceForward = GetActorLocation().X + ForwardDistanceChange;
+	SetActorRelativeLocation(FVector(NewDistanceForward, GetActorLocation().Y, CarHeight));
+}
+
+void ACar::DestroyStaticMesh(AActor* Car)
+{
+	Car->GetRootComponent()->DestroyComponent(false);
+	
 }

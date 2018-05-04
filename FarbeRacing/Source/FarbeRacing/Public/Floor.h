@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Components/BoxComponent.h"
+#include "Engine/TriggerVolume.h"
 #include "Floor.generated.h"
+
+class ACar;
 
 UCLASS()
 class FARBERACING_API AFloor : public AActor
@@ -14,21 +16,19 @@ class FARBERACING_API AFloor : public AActor
 	
 public:	
 	// Sets default values for this actor's properties
-	AFloor(const FObjectInitializer& objectInitializer);
+	AFloor();
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+	void DestroyStaticMesh();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 private:
+	ACar* PlayerCar = nullptr;
 
-	UPROPERTY(EditDefaultsOnly, Category = Trigger)
-	UBoxComponent* _collision;
-	
-
-	
-	
 };

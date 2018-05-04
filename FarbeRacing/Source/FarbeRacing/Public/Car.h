@@ -38,4 +38,6 @@ public:
 	
 	UCarMovementComponent* CarMovementComponent = nullptr;
 
+	void DestroyStaticMesh(AActor* Car);
+
 };

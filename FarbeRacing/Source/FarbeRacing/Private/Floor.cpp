@@ -1,10 +1,17 @@
 // Copyright Conner Linskens 2018
 
 #include "Floor.h"
+#include "Car.h"
+#include "GameFramework/Actor.h"
+#include "Materials/MaterialInterface.h"
+#include "Engine/World.h"
+#include "Components/PrimitiveComponent.h"
+
+#define OUT
 
 
 // Sets default values
-AFloor::AFloor(const FObjectInitializer& objectInitializer)
+AFloor::AFloor()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -15,6 +22,8 @@ AFloor::AFloor(const FObjectInitializer& objectInitializer)
 void AFloor::BeginPlay()
 {
 	Super::BeginPlay();
+
+	PlayerCar = Cast<ACar>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	
 }
 
@@ -24,4 +33,12 @@ void AFloor::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+
+void AFloor::DestroyStaticMesh()
+{
+	PlayerCar->Destroy(PlayerCar);
+}
+
+
+
 
