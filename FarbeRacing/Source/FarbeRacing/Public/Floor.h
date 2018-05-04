@@ -24,6 +24,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DestroyStaticMesh();
 
+	UFUNCTION(BlueprintCallable)
+	bool CheckForCar(AActor* ActorToCheck) const;
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<ACar> carblueprint;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

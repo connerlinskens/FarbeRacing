@@ -18,3 +18,4 @@ A original racing game were changing into different colors is the main feature
 * Every frame update works (in BP)
 * Added basic color floors and made roads bigger
 * Restraint for movement spamming added
+* Added TODO LIST and some other changes
