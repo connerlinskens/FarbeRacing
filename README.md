@@ -19,3 +19,4 @@ A original racing game were changing into different colors is the main feature
 * Added basic color floors and made roads bigger
 * Restraint for movement spamming added
 * Added TODO LIST and some other changes
+* Movement bug fix

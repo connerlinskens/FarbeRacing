@@ -39,12 +39,6 @@ void AFloor::DestroyStaticMesh()
 	PlayerCar->Destroy(PlayerCar);
 }
 
-bool AFloor::CheckForCar(AActor* ActorToCheck) const
-{
-	bool result = carblueprint && ActorToCheck;
-	return result;
-}
-
 
 
 
