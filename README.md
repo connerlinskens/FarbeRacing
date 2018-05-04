@@ -21,3 +21,4 @@ A original racing game were changing into different colors is the main feature
 * Added TODO LIST and some other changes
 * Movement bug fix
 * Fixed point of origin
+* Added color enable booleans

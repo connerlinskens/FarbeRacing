@@ -49,5 +49,4 @@ void ACar::GoForward()
 void ACar::DestroyStaticMesh(AActor* Car)
 {
 	Car->GetRootComponent()->DestroyComponent(false);
-	
 }
