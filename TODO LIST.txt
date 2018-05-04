@@ -1,6 +1,6 @@
 TODO:
 
-- Change point of origin in the CarModel.
+- Change point of origin in the CarModel. (done)
 - Add disable function for color changing.
 - Add UI to car.
 - Make atmosphere look good.
