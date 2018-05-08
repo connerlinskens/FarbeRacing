@@ -30,6 +30,7 @@ void ACar::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	
 	GoForward();
+
 }
 
 // Called to bind functionality to input
@@ -50,3 +51,4 @@ void ACar::DestroyStaticMesh(AActor* Car)
 {
 	Car->GetRootComponent()->DestroyComponent(false);
 }
+

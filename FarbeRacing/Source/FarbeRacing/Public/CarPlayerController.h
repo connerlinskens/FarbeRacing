@@ -14,7 +14,19 @@ class FARBERACING_API ACarPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
-	
-	
+private: 
+
+	void ArrowKeyRedHidden() const;
+	void ArrowKeyRedVisible() const;
+	void ArrowKeyBlueHidden() const;
+	void ArrowKeyBlueVisible() const;
+	void ArrowKeyYellowHidden() const;
+	void ArrowKeyYellowVisible() const;
+
+protected:
+	virtual void BeginPlay() override;
+
+public:
+	virtual void Tick(float DeltaTime) override;
 	
 };

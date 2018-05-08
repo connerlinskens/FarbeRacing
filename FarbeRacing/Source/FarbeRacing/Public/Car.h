@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "Components/InputComponent.h"
 #include "Car.generated.h"
 
 class UCarMovementComponent;
@@ -19,6 +20,15 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 	float ForwardSpeed = 2500;
+	
+	/*UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class UUserWidget> ArrowKeyLeft;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class UUserWidget> ArrowKeyUp;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class UUserWidget> ArrowKeyRight;*/
 
 	void GoForward();
 
