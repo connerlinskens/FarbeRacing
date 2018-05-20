@@ -2,7 +2,7 @@ TODO:
 
 - Change point of origin in the CarModel. (done)
 - Add disable function for color changing. (done)
-- Add UI to car.
+- Add UI to car. (done)
 - Make atmosphere look good.
 - A lot of level design.
 - Make begin screen, level selection, etc. UI

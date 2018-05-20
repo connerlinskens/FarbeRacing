@@ -24,3 +24,4 @@ A original racing game were changing into different colors is the main feature
 * Added color enable booleans
 * UI added (functionality awaits)
 * Base code for UI functionality added
+* Removed Base code, UI funcionality added in blueprint
