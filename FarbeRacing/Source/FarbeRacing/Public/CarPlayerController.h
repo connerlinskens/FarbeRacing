@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "Components/Image.h" 
+#include "Components/Widget.h" 
+#include "UObject/NoExportTypes.h"
 #include "CarPlayerController.generated.h"
 
 /**
@@ -15,7 +18,6 @@ class FARBERACING_API ACarPlayerController : public APlayerController
 	GENERATED_BODY()
 	
 private: 
-
 	void ArrowKeyRedHidden() const;
 	void ArrowKeyRedVisible() const;
 	void ArrowKeyBlueHidden() const;
@@ -28,5 +30,4 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
-	
 };
