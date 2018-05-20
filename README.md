@@ -25,3 +25,4 @@ A original racing game were changing into different colors is the main feature
 * UI added (functionality awaits)
 * Base code for UI functionality added
 * Removed Base code, UI funcionality added in blueprint
+* Changed level name
