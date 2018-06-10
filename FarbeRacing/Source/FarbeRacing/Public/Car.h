@@ -20,16 +20,10 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 	float ForwardSpeed = 2500;
-	
-	/*UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class UUserWidget> ArrowKeyLeft;
 
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class UUserWidget> ArrowKeyUp;
+	int32 score = 0;
 
-	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<class UUserWidget> ArrowKeyRight;*/
-
+private:
 	void GoForward();
 
 protected:
@@ -49,5 +43,8 @@ public:
 	UCarMovementComponent* CarMovementComponent = nullptr;
 
 	void DestroyStaticMesh(AActor* Car);
+
+	UFUNCTION(BlueprintCallable, Category = "Score")
+	FString GetScore(float ScoreMultiplier);
 
 };

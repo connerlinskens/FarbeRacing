@@ -26,3 +26,4 @@ A original racing game were changing into different colors is the main feature
 * Base code for UI functionality added
 * Removed Base code, UI funcionality added in blueprint
 * Changed level name
+* Added Basic procedural generation. Added Scoring system (bugged)

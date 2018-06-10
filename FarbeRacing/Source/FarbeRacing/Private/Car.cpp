@@ -29,7 +29,7 @@ void ACar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	GoForward();
+	//GoForward();
 
 }
 
@@ -52,3 +52,10 @@ void ACar::DestroyStaticMesh(AActor* Car)
 	Car->GetRootComponent()->DestroyComponent(false);
 }
 
+// Fix this pls
+FString ACar::GetScore(float ScoreMultiplier)
+{
+	float ScoreChange = GetWorld()->GetUnpausedTimeSeconds() * ScoreMultiplier;
+	score += ScoreChange;
+	return FString::FromInt(score);
+}

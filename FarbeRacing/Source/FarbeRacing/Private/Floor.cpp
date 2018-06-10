@@ -32,6 +32,9 @@ void AFloor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	auto LocationChange = -DefaultSpeed * GetWorld()->DeltaTimeSeconds;
+	auto NewLocation = GetActorLocation().X + LocationChange;
+	SetActorRelativeLocation(FVector(NewLocation, GetActorLocation().Y, GetActorLocation().Z));
 }
 
 void AFloor::DestroyStaticMesh()

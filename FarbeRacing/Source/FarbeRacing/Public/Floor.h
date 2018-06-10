@@ -31,4 +31,7 @@ protected:
 private:
 	ACar* PlayerCar = nullptr;
 
+	UPROPERTY(EditDefaultsOnly)
+	float DefaultSpeed = 5000;
+
 };
