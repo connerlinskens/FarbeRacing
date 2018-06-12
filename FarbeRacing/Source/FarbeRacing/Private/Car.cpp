@@ -55,7 +55,14 @@ void ACar::DestroyStaticMesh(AActor* Car)
 // Fix this pls
 FString ACar::GetScore(float ScoreMultiplier)
 {
-	float ScoreChange = GetWorld()->GetUnpausedTimeSeconds() * ScoreMultiplier;
-	score += ScoreChange;
-	return FString::FromInt(score);
+	if ((GetWorld()->GetUnpausedTimeSeconds() - LastScoreAdd) > ScoreMultiplier)
+	{
+		score += ScoreIncrease;
+		LastScoreAdd = GetWorld()->GetUnpausedTimeSeconds();
+		return FString::FromInt(score);
+	}
+	else 
+	{
+		return FString::FromInt(score);
+	}
 }

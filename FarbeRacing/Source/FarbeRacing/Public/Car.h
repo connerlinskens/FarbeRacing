@@ -21,6 +21,12 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float ForwardSpeed = 2500;
 
+	UPROPERTY(EditDefaultsOnly)
+	float ScoreIncrease = 1;
+
+	float ScoreDelay = 0.1;
+	double LastScoreAdd = 0;
+
 	int32 score = 0;
 
 private:

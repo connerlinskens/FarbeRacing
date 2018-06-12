@@ -110,7 +110,10 @@ void AFloorSpawner::SpawnFloor()
 
 void AFloorSpawner::DifficultyIncreaser()
 {
+	if (SpawnRate > 0.4)
+	{
 		SpawnRate -= DifficultyIncFactor;
 		SpawnDelay -= 0.1f;
 		DifficultyTimer += 60;
+	}
 }
