@@ -42,13 +42,21 @@ void AWall::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	MoveWall();
+}
+
+void AWall::MoveWall()
+{
+	auto LocationChange = -DefaultSpeed * GetWorld()->DeltaTimeSeconds;
+	auto NewLocation = GetActorLocation().X + LocationChange;
+	SetActorRelativeLocation(FVector(NewLocation, GetActorLocation().Y, GetActorLocation().Z));
 }
 
 void AWall::OnDelegateOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
 	if ((OtherActor->GetName() == PlayerCarName) && (OtherActor != nullptr) && (OtherComp != nullptr))
 	{
-		PlayerCar->GetRootComponent()->DestroyComponent();
+		PlayerCar->GetRootComponent()->DestroyComponent(true);
 		FTimerHandle delay;
 		GetWorldTimerManager().SetTimer(delay, this, &AWall::EndGame, 2, false);
 	}
@@ -56,5 +64,5 @@ void AWall::OnDelegateOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 
 void AWall::EndGame()
 {
-	UGameplayStatics::OpenLevel(GetWorld(), FName(*GetWorld()->GetMapName()));
+	UGameplayStatics::OpenLevel(GetWorld(), "main");
 }

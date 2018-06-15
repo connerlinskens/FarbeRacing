@@ -7,7 +7,6 @@
 #include "Engine/TriggerVolume.h"
 #include "Floor.generated.h"
 
-class ACar;
 
 UCLASS()
 class FARBERACING_API AFloor : public AActor
@@ -29,7 +28,7 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	ACar* PlayerCar = nullptr;
+	AActor* PlayerCar = nullptr;
 
 	UPROPERTY(EditDefaultsOnly)
 	float DefaultSpeed = 5000;

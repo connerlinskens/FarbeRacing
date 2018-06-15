@@ -30,3 +30,4 @@ A original racing game were changing into different colors is the main feature
 * Fixed Scoring System bug and fixed Difficulty Increaser bug
 * Added Basic code for walls
 * Added death penalty to walls
+* Movement walls and death bugs fixed

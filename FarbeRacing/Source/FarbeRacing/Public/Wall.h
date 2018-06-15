@@ -42,7 +42,12 @@ private:
 
 	AActor* PlayerCar = nullptr;
 
+	UPROPERTY(EditAnywhere)
+	float DefaultSpeed = 5000;
+
 private:
+	void MoveWall();
+
 	void EndGame();
 
 };

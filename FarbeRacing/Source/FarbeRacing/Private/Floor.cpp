@@ -1,7 +1,6 @@
 // Copyright Conner Linskens 2018
 
 #include "Floor.h"
-#include "Car.h"
 #include "GameFramework/Actor.h"
 #include "Materials/MaterialInterface.h"
 #include "Engine/World.h"
@@ -23,7 +22,7 @@ void AFloor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PlayerCar = Cast<ACar>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	PlayerCar = GetWorld()->GetFirstPlayerController()->GetPawn();
 	
 }
 
@@ -39,7 +38,7 @@ void AFloor::Tick(float DeltaTime)
 
 void AFloor::DestroyStaticMesh()
 {
-	PlayerCar->Destroy(PlayerCar);
+	PlayerCar->GetRootComponent()->DestroyComponent(true);
 }
 
 
