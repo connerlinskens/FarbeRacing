@@ -29,3 +29,4 @@ A original racing game were changing into different colors is the main feature
 * Added Basic procedural generation. Added Scoring system (bugged)
 * Fixed Scoring System bug and fixed Difficulty Increaser bug
 * Added Basic code for walls
+* Added death penalty to walls

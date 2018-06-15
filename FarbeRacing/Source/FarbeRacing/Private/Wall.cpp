@@ -1,6 +1,8 @@
 // Copyright Conner Linskens 2018
 
 #include "Wall.h"
+#include "Kismet/GameplayStatics.h"
+#include "Car.h"
 
 
 // Sets default values
@@ -31,6 +33,8 @@ void AWall::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	PlayerCar = GetWorld()->GetFirstPlayerController()->GetPawn();
+	PlayerCarName = PlayerCar->GetName();
 }
 
 // Called every frame
@@ -42,5 +46,15 @@ void AWall::Tick(float DeltaTime)
 
 void AWall::OnDelegateOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Something is overlapping me"));
+	if ((OtherActor->GetName() == PlayerCarName) && (OtherActor != nullptr) && (OtherComp != nullptr))
+	{
+		PlayerCar->GetRootComponent()->DestroyComponent();
+		FTimerHandle delay;
+		GetWorldTimerManager().SetTimer(delay, this, &AWall::EndGame, 2, false);
+	}
+}
+
+void AWall::EndGame()
+{
+	UGameplayStatics::OpenLevel(GetWorld(), FName(*GetWorld()->GetMapName()));
 }
