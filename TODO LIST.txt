@@ -1,7 +1,7 @@
 TODO:
 
+- Improve obstacles
 - Improve procedural generation
-- Make obstacles
 - Make begin and end screen UI
 
 MUSIC:
