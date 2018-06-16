@@ -28,6 +28,8 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+	APlayerController* PlayerController = nullptr;
+
 	AActor* PlayerCar = nullptr;
 
 	UPROPERTY(EditDefaultsOnly)

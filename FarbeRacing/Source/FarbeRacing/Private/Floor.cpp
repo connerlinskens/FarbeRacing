@@ -22,7 +22,8 @@ void AFloor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PlayerCar = GetWorld()->GetFirstPlayerController()->GetPawn();
+	PlayerController = GetWorld()->GetFirstPlayerController();
+	PlayerCar = PlayerController->GetPawn();
 	
 }
 
@@ -38,6 +39,7 @@ void AFloor::Tick(float DeltaTime)
 
 void AFloor::DestroyStaticMesh()
 {
+	PlayerCar->DisableInput(PlayerController);
 	PlayerCar->GetRootComponent()->DestroyComponent(true);
 }
 

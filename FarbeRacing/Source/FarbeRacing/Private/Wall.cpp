@@ -33,7 +33,8 @@ void AWall::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	PlayerCar = GetWorld()->GetFirstPlayerController()->GetPawn();
+	PlayerController = GetWorld()->GetFirstPlayerController();
+	PlayerCar = PlayerController->GetPawn();
 	PlayerCarName = PlayerCar->GetName();
 }
 
@@ -56,6 +57,7 @@ void AWall::OnDelegateOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 {
 	if ((OtherActor->GetName() == PlayerCarName) && (OtherActor != nullptr) && (OtherComp != nullptr))
 	{
+		PlayerCar->DisableInput(PlayerController);
 		PlayerCar->GetRootComponent()->DestroyComponent(true);
 		FTimerHandle delay;
 		GetWorldTimerManager().SetTimer(delay, this, &AWall::EndGame, 2, false);

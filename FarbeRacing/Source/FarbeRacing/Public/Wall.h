@@ -38,9 +38,9 @@ public:
 	void OnDelegateOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
 
 private:
-	FString PlayerCarName;
-
+	APlayerController* PlayerController = nullptr;
 	AActor* PlayerCar = nullptr;
+	FString PlayerCarName;
 
 	UPROPERTY(EditAnywhere)
 	float DefaultSpeed = 5000;

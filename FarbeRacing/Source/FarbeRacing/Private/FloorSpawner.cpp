@@ -40,55 +40,11 @@ void AFloorSpawner::SpawnFloor()
 	{
 		int32 RandFloorIndex = FMath::RandRange(0, SpawnableFloors.Num() - 1);
 
-		// Gets random spawn location and checks if it isn't the same place twice
-		int32 RandLocIndex;
-		bool bReadyForSpawning = false;
-		while (bReadyForSpawning == false)
-		{ 
-			RandLocIndex = FMath::RandRange(0, SpawnLocations.Num() - 1);
+		int32 RandomLoc;
 
-			if (RandLocIndex == 0)
-			{
-				if (bSpawnedMiddle == true)
-				{
-					UE_LOG(LogTemp, Warning, TEXT("Middle return!"));
-					return;
-				}
-				else
-				{
-					bSpawnedMiddle = true;
-					MiddleSpawnTime = GetWorld()->GetUnpausedTimeSeconds();
-					bReadyForSpawning = true;
-				}
-			}
-			else if (RandLocIndex == 1)
-			{
-				if (bSpawnedLeft == true)
-				{
-					UE_LOG(LogTemp, Warning, TEXT("Left return!"));
-					return;
-				}
-				else
-				{
-					bSpawnedLeft = true;
-					LeftSpawnTime = GetWorld()->GetUnpausedTimeSeconds();
-					bReadyForSpawning = true;
-				}
-			}
-			else if (RandLocIndex == 2)
-			{
-				if (bSpawnedRight == true)
-				{
-					UE_LOG(LogTemp, Warning, TEXT("Right return!"));
-					return;
-				}
-				else
-				{
-					bSpawnedRight = true;
-					RightSpawnTime = GetWorld()->GetUnpausedTimeSeconds();
-					bReadyForSpawning = true;
-				}
-			}
+		while (bReadyForSpawning == false)
+		{
+			RandomLoc = GetRandomSpawnLocation();
 		}
 
 		bReadyForSpawning = false;
@@ -96,16 +52,69 @@ void AFloorSpawner::SpawnFloor()
 		// Spawns the floor
 		auto SpawnedFloor = GetWorld()->SpawnActor<AFloor>(
 			SpawnableFloors[RandFloorIndex],
-			FVector(GetActorLocation().X, SpawnLocations[RandLocIndex], FloorZPos),
+			FVector(GetActorLocation().X, SpawnLocations[RandomLoc], FloorZPos),
 			FRotator(GetActorRotation().Pitch, 90, GetActorRotation().Roll)
 			);
 
 		GeneralLastSpawnTime = GetWorld()->GetUnpausedTimeSeconds();
-
-		if ((GetWorld()->GetUnpausedTimeSeconds() - SpawnDelay) > MiddleSpawnTime) { bSpawnedMiddle = false; }
-		if ((GetWorld()->GetUnpausedTimeSeconds() - SpawnDelay) > LeftSpawnTime) { bSpawnedLeft = false; }
-		if ((GetWorld()->GetUnpausedTimeSeconds() - SpawnDelay) > RightSpawnTime) { bSpawnedRight = false; }
 	}	
+}
+
+int32 AFloorSpawner::GetRandomSpawnLocation()
+{
+	// Gets random spawn location and checks if it isn't the same place twice
+	int32 RandLocIndex;
+
+		RandLocIndex = FMath::RandRange(0, SpawnLocations.Num() - 1);
+
+		if (RandLocIndex == 0)
+		{
+			if (bSpawnedMiddle == true)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Middle return!"));
+				return RandLocIndex;
+			}
+			else
+			{
+				bSpawnedMiddle = true;
+				MiddleSpawnTime = GetWorld()->GetUnpausedTimeSeconds();
+				bReadyForSpawning = true;
+			}
+		}
+		else if (RandLocIndex == 1)
+		{
+			if (bSpawnedLeft == true)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Left return!"));
+				return RandLocIndex;
+			}
+			else
+			{
+				bSpawnedLeft = true;
+				LeftSpawnTime = GetWorld()->GetUnpausedTimeSeconds();
+				bReadyForSpawning = true;
+			}
+		}
+		else if (RandLocIndex == 2)
+		{
+			if (bSpawnedRight == true)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("Right return!"));
+				return RandLocIndex;
+			}
+			else
+			{
+				bSpawnedRight = true;
+				RightSpawnTime = GetWorld()->GetUnpausedTimeSeconds();
+				bReadyForSpawning = true;
+			}
+		}
+
+	if ((GetWorld()->GetUnpausedTimeSeconds() - SpawnDelay) > MiddleSpawnTime) { bSpawnedMiddle = false; }
+	if ((GetWorld()->GetUnpausedTimeSeconds() - SpawnDelay) > LeftSpawnTime) { bSpawnedLeft = false; }
+	if ((GetWorld()->GetUnpausedTimeSeconds() - SpawnDelay) > RightSpawnTime) { bSpawnedRight = false; }
+
+	return RandLocIndex;
 }
 
 void AFloorSpawner::DifficultyIncreaser()
