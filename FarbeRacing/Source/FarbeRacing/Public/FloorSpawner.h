@@ -56,12 +56,15 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float DifficultyIncFactor = 0.2;
 
-	bool bReadyForSpawning = false;
+	bool bReadyForSpawning1 = false;
+	bool bReadyForSpawning2 = false;
 
 private:
-	void SpawnFloor();
+	void CheckFloorSpawn();
 
-	int32 GetRandomSpawnLocation();
+	void SpawnFloor(int32 RandFloorIndex, int32 RandomLocIndex);
+
+	int32 GetRandomSpawnLocation(bool& ReadyForSpawning);
 
 	void DifficultyIncreaser();
 };
