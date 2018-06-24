@@ -33,3 +33,4 @@ A original racing game were changing into different colors is the main feature
 * Movement walls and death bugs fixed
 * Cleaned up floorspawner file and added death functionality
 * Improved FloorSpawner
+* Removed FloorSpawner and rewrote whole file to fix bug
